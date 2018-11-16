@@ -1,4 +1,5 @@
 # Directories.
+datasets_voc/
 __pycache__/
 datasets/__pycache__/
 deployment/__pycache__/

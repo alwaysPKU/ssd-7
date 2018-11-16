@@ -6,9 +6,9 @@ import shutil
 # fileDir_img = "E:\\voc_year\\VOCdevkit\\VOC2007\\JPEGImages\\"
 # saveDir_img = "E:\\voc_year\\VOCdevkit\\VOC2007\\JPEGImages_ssd\\"
 
-fileDir_ann = "../VOC_datasets/2007/VOCdevkit/VOC2007/Annotations"
-fileDir_img = "../VOC_datasets/2007/VOCdevkit/VOC2007/JPEGImages/"
-saveDir_img = "../VOC_datasets/2007/VOCdevkit/VOC2007/JPEGImages_ssd7/"
+fileDir_ann = "../datasets_voc/2007/VOCdevkit/VOC2007/Annotations"
+fileDir_img = "../datasets_voc/2007/VOCdevkit/VOC2007/JPEGImages/"
+saveDir_img = "../datasets_voc/2007/VOCdevkit/VOC2007/JPEGImages_ssd7/"
 
 if not os.path.exists(saveDir_img):
     os.mkdir(saveDir_img)
@@ -21,7 +21,7 @@ for files in os.walk(fileDir_ann):
         print(file + "-->start!")
 
         # saveDir_ann = "E:\\voc_year\\VOCdevkit\\VOC2007\\Annotations_ssd\\"
-        saveDir_ann = "../VOC_datasets/2007/VOCdevkit/VOC2007/Annotations_ssd7/"
+        saveDir_ann = "../datasets_voc/2007/VOCdevkit/VOC2007/Annotations_ssd7/"
         if not os.path.exists(saveDir_ann):
             os.mkdir(saveDir_ann)
 
