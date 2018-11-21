@@ -1,7 +1,9 @@
 import os
 import os.path
 import shutil
-
+'''
+生成Annotation和JPEGImages
+'''
 # fileDir_ann = "E:\\voc_year\\VOCdevkit\\VOC2007\\Annotations"
 # fileDir_img = "E:\\voc_year\\VOCdevkit\\VOC2007\\JPEGImages\\"
 # saveDir_img = "E:\\voc_year\\VOCdevkit\\VOC2007\\JPEGImages_ssd\\"
@@ -36,8 +38,8 @@ for files in os.walk(fileDir_ann):
 
         ind_start = []
         ind_end = []
-        lines_id_start = lines[:]
-        lines_id_end = lines[:]
+        lines_id_start = lines[:]  #深拷贝
+        lines_id_end = lines[:]   #深拷贝
 
         while "\t<object>\n" in lines_id_start:
             a = lines_id_start.index("\t<object>\n")
@@ -69,6 +71,7 @@ for files in os.walk(fileDir_ann):
         classes5 = '\t\t<name>motorbike</name>\n'
         classes6 = '\t\t<name>train</name>\n'
         classes7 = '\t\t<name>person</name>\n'
+        mark='\t\t<part>\n'
 
         string_start = lines[0:ind_start[0]]
         string_end = [lines[len(lines) - 1]]
@@ -93,7 +96,7 @@ for files in os.walk(fileDir_ann):
             if classes6 in names['block%d' % k]:
                 a += 1
                 string_start += names['block%d' % k]
-            if classes7 in names['block%d' % k]:
+            if classes7 in names['block%d' % k] and mark not in names['block%d' % k]:
                 a += 1
                 string_start += names['block%d' % k]
 

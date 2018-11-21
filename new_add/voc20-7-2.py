@@ -6,11 +6,13 @@ train_percent = 0.5
 xmlfilepath = '../datasets_voc/2007/VOCdevkit/VOC2007-7/Annotations'
 txtsavepath = '../datasets_voc/2007/VOCdevkit/VOC2007-7/ImageSets/Main'
 total_xml = os.listdir(xmlfilepath)
+if not os.path.exists(txtsavepath):
+    os.makedirs(txtsavepath)
 
-num=len(total_xml)
+num=len(total_xml) # xml文件个数，也是图片个数(6270)
 list=range(num)
-tv=int(num*trainval_percent)
-tr=int(tv*train_percent)
+tv=int(num*trainval_percent) #traival占比个数
+tr=int(tv*train_percent)    #train占比个数
 trainval= random.sample(list,tv)
 train=random.sample(trainval,tr)
 
